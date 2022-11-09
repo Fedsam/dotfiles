@@ -1,0 +1,58 @@
+# NVIM
+alias vi="nvim"
+
+# config files
+alias zshconfig="pushd $ZDOTDIR && vi zshrc"
+alias viconfig="pushd $NVIMDOTDIR && vi"
+
+
+### BEGIN MACOS ###
+{{ if eq .chezmoi.os "darwin" -}}
+# fix git version in tmux
+alias git=/opt/homebrew/bin/git
+alias hamconfig="pushd ~/.hammerspoon && vi"
+
+# BREW
+alias syu="brew update && brew upgrade && brew cleanup"
+alias bi="brew install"
+alias bic="brew install --cask"
+alias bs="brew search"
+alias bu="brew uninstall"
+alias bl="brew list"
+
+# app-cleaner
+alias clean="app-cleaner.sh"
+{{ end -}}
+### END MACOS ###
+
+# LS
+alias ls="exa -1"
+alias lsg="exa -1 --grid"
+alias la="exa -1a"
+alias lag="exa -1a --grid"
+alias ll="exa -la"
+alias llg="exa -la --grid"
+
+# CAT
+alias cat="bat"
+
+# GIT
+alias gcl="git clone"
+alias gca="git add . && git commit --amend --no-edit"
+alias gc="git add . && git commit -m"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gps="git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)"
+alias gfr="git fetch --all --prune && git pull --rebase"
+alias grc="git add . && git rebase --continue"
+alias gra="git rebase --abort"
+alias gs="git status"
+alias gst="git stash"
+alias gsp="git stash pop"
+alias gsc="git stash clear"
+alias master="git switch master"
+alias gbc="git switch -c"
+alias gb="git switch"
+
+# OTHER
+alias luamake=/Users/fedsam/lua-language-server/3rd/luamake/luamake

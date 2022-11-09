@@ -1,0 +1,63 @@
+setopt autocd extendedglob nomatch menucomplete
+setopt interactive_comments
+stty stop undef
+zle_highlight=('paste:none')
+
+# Remove beep
+unsetopt BEEP
+
+# Completions
+zstyle ':completion:*' menu select
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}" # Git completion from brew (bash-completion)
+autoload -Uz compinit
+compinit
+
+zmodload zsh/complist
+
+# Colors
+autoload -Uz colors && colors
+
+# No duplicates in prompt
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=5000
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# VI Mode
+#bindkey -v
+
+# Custom commands
+source "$ZDOTDIR/zsh-functions"
+zsh_add_file "zsh-aliases"
+
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/Users/fedsam/Library/Python/3.9/bin:$PATH"
+export PATH="/Users/fedsam/.config/lua/lua-language-server/bin/macOS:$PATH"
+
+
+# ZOXIDE
+eval "$(zoxide init zsh)"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# SDKMAN
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Cargo
+. "$HOME/.cargo/env"
+
+# Prompt
+eval "$(starship init zsh)"

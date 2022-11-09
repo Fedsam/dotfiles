@@ -1,0 +1,13 @@
+# ZSH
+**/zsh/plugins/
+**/zsh/plugins/**
+**/zsh/.zcompdump
+**/zsh/.zsh_history
+**/zsh/.zsh_sessions
+**/zsh/.zsh_sessions/**
+
+# NEOVIM
+**/nvim/plugin/
+
+# GLOBAL
+**/.DS_Store
