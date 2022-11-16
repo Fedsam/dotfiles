@@ -8,6 +8,7 @@
 
 # NEOVIM
 **/nvim/plugin/
+**/nvim/.luarc.json
 
 # GLOBAL
 **/.DS_Store

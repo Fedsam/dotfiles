@@ -16,6 +16,13 @@ require('packer').startup(function()
 
     use 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
+    -- Harpoon
+    use {
+      'ThePrimeagen/harpoon',
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = function () require('plugins.harpoon') end
+    }
+
     -- Completion
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
