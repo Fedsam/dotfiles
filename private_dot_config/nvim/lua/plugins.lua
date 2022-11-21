@@ -16,11 +16,18 @@ require('packer').startup(function()
 
     use 'WhoIsSethDaniel/mason-tool-installer.nvim'
 
-    -- Harpoon
+    use 'kyazdani42/nvim-web-devicons'
+
     use {
-      'ThePrimeagen/harpoon',
-      requires = { 'nvim-lua/plenary.nvim' },
-      config = function () require('plugins.harpoon') end
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = function() require('plugins.lualine') end
+    }
+
+    use {
+        'ThePrimeagen/harpoon',
+        requires = {'nvim-lua/plenary.nvim'},
+        config = function() require('plugins.harpoon') end
     }
 
     -- Completion
@@ -37,9 +44,9 @@ require('packer').startup(function()
 
     -- Lint & Formatting
     use {
-      'jose-elias-alvarez/null-ls.nvim',
-      requires = 'nvim-lua/plenary.nvim',
-      config = function() require('plugins.null-ls') end
+        'jose-elias-alvarez/null-ls.nvim',
+        requires = 'nvim-lua/plenary.nvim',
+        config = function() require('plugins.null-ls') end
     }
     -- use 'MunifTanjim/prettier.nvim'
 
